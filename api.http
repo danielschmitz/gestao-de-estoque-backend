@@ -1,0 +1,13 @@
+# Gestão de Estoque
+# Este arquivo funciona em conjunto com a extenção Rest Client do VSCode
+# Instala a extensão e abra este arquivo no editor, então para cada GET, POST, PUT ou DELETE 
+# no arquivo você poderá clicar em "Send Request" para ver o resultado
+
+# Variáveis (edite caso a url do servidor mude)
+@host = api.example.com
+
+###
+GET https://{{host}}/comments/1
+
+###
+GET https://{{host}}/comments/2
