@@ -1,10 +1,7 @@
 const express = require('express')
 const app = express();
 
-app.get('/', function(req,res) {
-    res.send('Olá Mundo')
-})
+require('./api/hello.js')(app)
+require('./libs/cors.js')(app)
+require('./libs/start.js')(app)
 
-app.listen(3000, function () {
-    console.log('Server running...')
-})
