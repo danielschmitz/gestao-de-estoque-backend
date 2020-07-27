@@ -4,10 +4,7 @@
 # no arquivo você poderá clicar em "Send Request" para ver o resultado
 
 # Variáveis (edite caso a url do servidor mude)
-@host = api.example.com
+@host = localhost:3000
 
 ###
-GET https://{{host}}/comments/1
-
-###
-GET https://{{host}}/comments/2
+GET http://{{host}}
