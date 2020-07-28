@@ -1,7 +1,24 @@
 const express = require('express')
 const app = express();
 
-require('./api/hello.js')(app)
-require('./libs/cors.js')(app)
-require('./libs/start.js')(app)
+
+
+
+//
+// Biliotecas
+//
+require('./libs/cors')(app)
+require('./libs/bodyParser')(app)
+require('./libs/knex')(app)
+
+
+//
+// API
+//
+require('./api/hello')(app)
+
+//
+// Iniciar servidor
+//
+require('./libs/start')(app)
 
