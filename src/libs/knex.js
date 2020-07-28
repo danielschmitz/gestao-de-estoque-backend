@@ -1,4 +1,9 @@
 //
+// Knex é parser de SQL para acesso ao banco de dados
+//
+
+
+///
 // dotenv lê arquivos .env e .env.prod
 //
 require('dotenv').config()
