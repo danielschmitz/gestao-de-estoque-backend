@@ -1,5 +1,5 @@
 # Gestão de Estoque
-# Este arquivo funciona em conjunto com a extenção Rest Client do VSCode
+# Este arquivo funciona em conjunto com a extensão Rest Client do VSCode
 # Instala a extensão e abra este arquivo no editor, então para cada GET, POST, PUT ou DELETE 
 # no arquivo você poderá clicar em "Send Request" para ver o resultado
 
