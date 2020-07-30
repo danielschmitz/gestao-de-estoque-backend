@@ -6,5 +6,25 @@
 # Variáveis (edite caso a url do servidor mude)
 @host = localhost:3000
 
-###
+### Hello (apenas um teste)
 GET http://{{host}}/hello
+
+
+#################################
+## USUÁRIOS
+#################################
+
+###
+# Obter todos os usuários
+GET http://{{host}}/usuarios
+
+### Adicionar um usuário
+POST http://{{host}}/usuario
+
+### Editar um usuário
+PUT http://{{host}}/usuario
+
+### Remover um usuário
+DELETE http://{{host}}/usuario
+
+

@@ -6,7 +6,10 @@ Este programa em Node fornece uma API para o gerenciamento de estoque utilizando
 
 ## Instalação
 
-- todo
+- Faça o clone deste projeto
+- `npm i -g knex` Este comando irá instalar o knex globalmente no sistema operacional. O knex será usado para operações no banco de dados.
+- `npm install` Irá instalar todos os pacotes do projeto
+- 
 
 ## Uso
 

@@ -12,6 +12,7 @@ require('./libs/knex')(app)
 // API
 //
 require('./api/hello')(app)
+require('./api/usuarios')(app)
 
 //
 // Iniciar servidor
