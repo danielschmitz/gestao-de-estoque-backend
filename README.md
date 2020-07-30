@@ -2,7 +2,7 @@
 
 Este programa em Node fornece uma API para o gerenciamento de estoque utilizando as seguintes tabelas:
 
-![](tables.png)
+![](tabelas.png)
 
 ## Instalação
 
