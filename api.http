@@ -14,8 +14,7 @@ GET http://{{host}}/hello
 ## USUÁRIOS
 #################################
 
-###
-# Obter todos os usuários
+### Obter todos os usuários
 GET http://{{host}}/usuarios
 
 ### Adicionar um usuário
@@ -29,9 +28,16 @@ content-type: application/json
 }
 
 ### Editar um usuário
-PUT http://{{host}}/usuario
+PUT http://{{host}}/usuario/1
+content-type: application/json
+
+{
+    "nome": "José",
+    "email": "joao2@gmail.com",
+    "senha": "555666"
+}
 
 ### Remover um usuário
-DELETE http://{{host}}/usuario
+DELETE http://{{host}}/usuario/1
 
 

@@ -1,20 +1,19 @@
 const db = require('../libs/knex')
 const bcrypt = require('bcryptjs')
 
-const tabela = 'usuarios'
-
 module.exports = app => {
     app.get('/usuarios', async function(req,res) {
-        const usuarios = await db(tabela)
+        const usuarios = await db('usuarios')
         return res.json(usuarios)
     })
-    app.post('/usuario', async function(req,res, next) {
+    
+    app.post('/usuario', async function(req,res) {
         const { nome, email, senha } = req.body
         
-        const emailExiste = await db(tabela).where({email}).first()
-        if (emailExiste) { return res.badRequest('Email Inválido!!') }
+        const emailExiste = await db('usuarios').where({email}).first()
+        if (emailExiste) { return res.badRequest('Email já cadastrado') }
         
-        const result = await db(tabela).insert(
+        const result = await db('usuarios').insert(
             {   
                 nome,
                 email,
@@ -23,5 +22,29 @@ module.exports = app => {
         )
         const id = result[0]
         return res.json({id})
+    })
+
+    app.put('/usuario/:id', async function(req,res) {
+        const { id } = req.params
+        const { nome, email, senha } = req.body
+        
+        const usuario = await db('usuarios').where({id}).first()
+        
+        if (usuario.email !== email) { // Está alterando o email
+            const emailExiste = await db('usuarios').where({email}).first()
+            if (emailExiste) { return res.badRequest('Email já cadastrado') }
+        }
+
+        await db('usuarios').where({id}).update(
+            {
+                nome,
+                email,
+                senha: bcrypt.hashSync(senha, 10)
+            })
+        
+        const result = await db('usuarios').where({id}).first() 
+        
+        return res.json({result})
+
     })
 }
