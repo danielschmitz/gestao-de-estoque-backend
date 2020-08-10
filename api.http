@@ -20,6 +20,13 @@ GET http://{{host}}/usuarios
 
 ### Adicionar um usuário
 POST http://{{host}}/usuario
+content-type: application/json
+
+{
+    "nome": "José",
+    "email": "joao@gmail.com",
+    "senha": "555666"
+}
 
 ### Editar um usuário
 PUT http://{{host}}/usuario
