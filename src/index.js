@@ -7,6 +7,7 @@ const app = express();
 require('./libs/cors')(app)
 require('./libs/bodyParser')(app)
 require('./libs/knex')(app)
+require('./libs/errors')(app)
 
 //
 // API
