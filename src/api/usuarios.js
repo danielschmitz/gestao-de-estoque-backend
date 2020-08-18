@@ -1,8 +1,12 @@
 const db = require('../libs/knex')
 const bcrypt = require('bcryptjs')
 
+async function emailExiste(email) {
+    return await db('usuarios').where({email}).first() != undefined
+}
+
 module.exports = app => {
-    
+
     app.get('/usuarios', async function(req,res) {
         const usuarios = await db('usuarios')
         return res.json(usuarios)
@@ -11,8 +15,7 @@ module.exports = app => {
     app.post('/usuario', async function(req,res) {
         const { nome, email, senha } = req.body
         
-        const emailExiste = await db('usuarios').where({email}).first()
-        if (emailExiste) { return res.badRequest('Email já cadastrado') }
+        if (await emailExiste(email)) { return res.badRequest('Email já cadastrado') }
         
         const result = await db('usuarios').insert(
             {   
@@ -32,8 +35,7 @@ module.exports = app => {
         const usuario = await db('usuarios').where({id}).first()
         
         if (usuario.email !== email) { // Está alterando o email
-            const emailExiste = await db('usuarios').where({email}).first()
-            if (emailExiste) { return res.badRequest('Email já cadastrado') }
+            if (await emailExiste(email)) { return res.badRequest('Email já cadastrado') }
         }
 
         await db('usuarios').where({id}).update(

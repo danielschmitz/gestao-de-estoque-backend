@@ -23,7 +23,7 @@ content-type: application/json
 
 {
     "nome": "José",
-    "email": "joao@gmail.com",
+    "email": "joao4@gmail.com",
     "senha": "555666"
 }
 
