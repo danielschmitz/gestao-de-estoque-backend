@@ -1,5 +1,5 @@
+const { sayHello } = require("../services/hello")
+
 module.exports = app => {
-    app.get('/hello', function(req,res) {
-        res.send('Olá Mundo')
-    })
+    app.get('/hello', (req, res) => res.send(sayHello))
 }
