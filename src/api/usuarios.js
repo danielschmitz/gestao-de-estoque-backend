@@ -1,10 +1,12 @@
 const db = require('../libs/knex')
 const bcrypt = require('bcryptjs')
-const { getAll } = require('../services/usuarios')
 
 module.exports = app => {
-
-    app.get('/usuarios', async (req,res) => res.json(await getAll()) )
+    
+    app.get('/usuarios', async function(req,res) {
+        const usuarios = await db('usuarios')
+        return res.json(usuarios)
+    })
     
     app.post('/usuario', async function(req,res) {
         const { nome, email, senha } = req.body
